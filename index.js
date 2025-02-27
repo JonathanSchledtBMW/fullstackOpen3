@@ -6,6 +6,10 @@ app.use(express.json());
 
 app.use(morgan("tiny"));
 
+morgan.token("type", (req, res) => {
+	return req.headers["content-type"];
+});
+
 let persons = [
 	{
 		id: "1",
